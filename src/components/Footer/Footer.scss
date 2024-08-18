@@ -1,0 +1,63 @@
+@import '../../style/variables.scss';
+.footer {
+	flex-shrink: 0;
+	position: relative;
+	width: 100%;
+	display: flex;
+	height: auto;
+	flex-direction: column;
+	background-color: $text-color-secondary;
+	&__wrapper {
+		background-color: $text-color-secondary;
+		&--logo {
+			display: flex;
+			justify-content: flex-start;
+			font-weight: 700;
+			font-size: 38px;
+			align-items: center;
+			margin: 0;
+			padding: 0;
+			color: $text-color-primary;
+		}
+		&--contacts {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			gap: 90px;
+			position: relative;
+			z-index: 1;
+			@media (max-width: $tablet-width) {
+				flex-direction: column;
+				font-size: 24px;
+				gap: unset;
+			}
+			&--link {
+				display: flex;
+				flex-direction: column;
+				gap: 32px;
+				font-weight: 500;
+				font-size: 25px;
+				color: #c2c2c1;
+				@media (max-width: $tablet-width) {
+					font-size: 24px;
+				}
+			}
+		}
+		&--call-img {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+
+			@media (min-width: $tablet-width) {
+				right: 0;
+			}
+			@media (min-width: $desktop-width) {
+				right: 75px;
+			}
+		}
+	}
+}
+
+.contacts__label {
+	font-weight: 700;
+}

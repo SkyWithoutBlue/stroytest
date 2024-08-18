@@ -1,0 +1,82 @@
+@import "../../style/variables.scss";
+
+.menu-btn {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  @media (min-width: $desktop-width) {
+    display: none;
+  }
+  &__burger {
+    width: 40px;
+    height: 4px;
+    background: $text-color-primary;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    @media (min-width: $desktop-width) {
+      display: none;
+    }
+  }
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  background: $text-color-primary;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-btn__burger::before {
+  transform: translateY(-10px);
+}
+
+.menu-btn__burger::after {
+  transform: translateY(10px);
+}
+
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-40px);
+  background: transparent;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(34px, -34px);
+  background: $warning-color;
+}
+
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(34px, 34px);
+  background: $warning-color;
+}
+/* 
+
+*/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transition: (all 0.3s ease-in-out);
+  background-color: black;
+  opacity: 0;
+  visibility: hidden;
+
+  &.show {
+    opacity: 0.75;
+
+    visibility: visible;
+    z-index: -10;
+  }
+}
